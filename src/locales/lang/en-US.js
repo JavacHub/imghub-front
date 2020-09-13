@@ -1,6 +1,13 @@
 import exceptionLang from '@/views/exception/locales/enUS'
 
 export default {
+  home: {
+    index: {
+      default: 'ImgHub 首页',
+      title: 'ImgHub 首页',
+    },
+  },
+
   navBar: {
     lang: 'Language',
   },
@@ -14,8 +21,8 @@ export default {
   },
   menu: {
     home: 'Home',
-    dashboard: {
-      default: 'Dashboard',
+    admin: {
+      default: 'Admin',
       welcome: 'Welcome',
       workplace: 'Workplace',
     },
@@ -31,7 +38,7 @@ export default {
   },
 
   pages: {
-    dashboard: {
+    admin: {
       welcome: {
         tips: 'Welcome used Ant Design Vue',
         'show-loading': 'Show Loading',

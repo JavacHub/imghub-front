@@ -20,7 +20,8 @@ export default {
   menu: {
     locale: true,
   },
-  title: 'Ant Design Pro',
+  adminTitle: 'ImgHub - 管理系统',
+  indexTitle: 'ImgHub - 首页',
   pwa: false,
   iconfontUrl: '',
   production: process.env.NODE_ENV === 'production' && process.env.VUE_APP_PREVIEW !== 'true',

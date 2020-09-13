@@ -67,10 +67,10 @@ import {
 import defaultSettings from '@/config/defaultSettings'
 
 export default {
-  name: 'BasicLayout',
+  name: 'AdminLayout',
   mixins: [baseMixin], // this[xxx] store value mixin, see this file
   data () {
-    this.siteTitle = defaultSettings.title
+    this.siteTitle = defaultSettings.adminTitle
     return {
       // base
       menus: [],
@@ -88,7 +88,8 @@ export default {
   },
   created () {
     // bind router (绑定路由)
-    const routes = this.mainMenu.find(item => item.path === '/')
+    const routes = this.mainMenu.find(item => item.path === '/admin')
+    console.log(this)
     this.menus = (routes && routes.children) || []
 
     // 处理侧栏收起状态
@@ -182,5 +183,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "./BasicLayout.less";
+@import "./AdminLayout.less";
 </style>

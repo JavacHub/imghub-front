@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h2>{{ $t('pages.dashboard.welcome.tips') }}</h2>
+    <h2>{{ $t('pages.admin.welcome.tips') }}</h2>
     <div class="demo-wrapper">
       <a-button @click="showLoading" style="margin-right: 12px;">
-        {{ $t('pages.dashboard.welcome.show-loading') }}
+        {{ $t('pages.admin.welcome.show-loading') }}
       </a-button>
       <a-button @click="hideLoading">
-        {{ $t('pages.dashboard.welcome.hide-loading') }}
+        {{ $t('pages.admin.welcome.hide-loading') }}
       </a-button>
     </div>
   </div>

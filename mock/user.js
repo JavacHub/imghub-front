@@ -62,7 +62,7 @@ module.exports = {
         deleted: 0,
         permissions: [{
           roleId: 'admin',
-          permissionId: 'dashboard',
+          permissionId: 'admin',
           permissionName: '仪表盘',
           actionEntitySet: [{
             action: 'add',

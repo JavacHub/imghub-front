@@ -1,6 +1,12 @@
 import exceptionLang from '@/views/exception/locales/zhCN'
 
 export default {
+  home: {
+    index: {
+      title: 'ImgHub 首页',
+    },
+  },
+
   navBar: {
     lang: '语言',
   },
@@ -14,7 +20,7 @@ export default {
   },
   menu: {
     home: '首页',
-    dashboard: {
+    admin: {
       default: '仪表盘',
       welcome: '欢迎',
       workplace: '工作台',
@@ -31,7 +37,7 @@ export default {
   },
 
   pages: {
-    dashboard: {
+    admin: {
       welcome: {
         tips: '欢迎使用 Ant Design Vue',
         'show-loading': '显示 Loading',

@@ -8,7 +8,7 @@ import router from './router'
 import store from './store'
 import i18n from './locales'
 import bootstrap from './core/bootstrap'
-import { ConfigProvider, Icon, Button, Tag, Menu, Dropdown, Avatar, Spin, Result, Form, Tabs, Input, Checkbox, Row, Col, Modal, Alert, Divider, notification, message } from 'ant-design-vue'
+import { Layout, ConfigProvider, Icon, Button, Tag, Menu, Dropdown, Avatar, Spin, Result, Form, Tabs, Input, Checkbox, Row, Col, Modal, Alert, Divider, notification, message } from 'ant-design-vue'
 import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout'
 import { PageLoading } from '@/components'
 import themeConfig from './config/theme.config.js'
@@ -19,6 +19,7 @@ import './router/router-guards'
 import './styles/global.less'
 
 // Ant Design Vue
+Vue.use(Layout)
 Vue.use(ConfigProvider)
 Vue.use(Icon)
 Vue.use(Tag)

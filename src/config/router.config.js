@@ -1,4 +1,4 @@
-import { BasicLayout, UserLayout } from '@/layouts'
+import { BlankLayout, HomeLayout, AdminLayout, UserLayout } from '@/layouts'
 
 const RouteView = {
   name: 'RouteView',
@@ -6,6 +6,15 @@ const RouteView = {
 }
 
 export const constantRouterMap = [
+  // home
+  {
+    path: '/',
+    name: 'home',
+    component: HomeLayout,
+    children: [
+      // 这里写 home 的 pages
+    ],
+  },
   {
     path: '/user',
     name: 'user',
@@ -25,29 +34,31 @@ export const constantRouterMap = [
 ]
 
 export const asyncRouterMap = [
+
   {
-    path: '/',
-    name: 'index',
-    component: BasicLayout,
+    path: '/admin',
+    name: 'IndexLayout',
+    component: AdminLayout,
     meta: { title: 'menu.home' },
-    redirect: '/dashboard/welcome',
+    redirect: '/admin/welcome',
     children: [
-      // dashboard
+      // admin
       {
-        path: '/dashboard',
-        name: 'dashboard',
-        redirect: '/dashboard/welcome',
+        path: '/admin',
+        name: 'IndexRoute',
+        redirect: '/admin/welcome',
         component: RouteView,
-        meta: { title: 'menu.dashboard.default', keepAlive: true, icon: 'dashboard', permission: ['dashboard'] },
+        meta: { title: 'menu.admin.default', keepAlive: true, icon: 'dashboard', permission: ['admin'] },
         children: [
           {
-            path: '/dashboard/welcome',
+            path: '/admin/welcome',
             name: 'Welcome',
-            component: () => import('@/views/dashboard/Welcome'),
-            meta: { title: 'menu.dashboard.welcome', keepAlive: false, permission: ['dashboard'] },
+            component: () => import('@/views/admin/Welcome'),
+            meta: { title: 'menu.admin.welcome', keepAlive: false, permission: ['admin'] },
           },
         ],
       },
+      // form
       {
         path: '/form',
         name: 'form',

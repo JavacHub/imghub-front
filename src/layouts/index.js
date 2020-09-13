@@ -1,9 +1,11 @@
-import BasicLayout from './BasicLayout'
+import HomeLayout from './HomeLayout'
+import AdminLayout from './AdminLayout'
 import BlankLayout from './BlankLayout'
 import UserLayout from './UserLayout'
 
 export {
-  BasicLayout,
+  HomeLayout,
+  AdminLayout,
   BlankLayout,
   UserLayout,
 }
