@@ -1,15 +1,16 @@
 <template>
-  <div id="userLayout" :class="['user-layout-wrapper', isMobile && 'mobile']">
+  <div id="userLayout" :class="['user-layout-wrapper']">
+    <!-- <div id="userLayout" :class="['user-layout-wrapper', isMobile && 'mobile']"> -->
     <div class="container">
       <div class="top">
         <div class="header">
           <a href="/">
-            <img src="~@/assets/logo.svg" class="logo" alt="logo">
-            <span class="title">Ant Design</span>
+            <img src="~@/assets/logo.png" class="logo" alt="logo">
+            <span class="title">ImgHub - 用户</span>
           </a>
         </div>
         <div class="desc">
-          Ant Design 是西湖区最具影响力的 Web 设计规范
+          行走在西湖边上的图床
         </div>
       </div>
 
@@ -22,7 +23,7 @@
           <a href="_self">条款</a>
         </div>
         <div class="copyright">
-          Copyright &copy; 2018 vueComponent
+          <span style="color:rgba(255, 255, 255, 0.85)">Copyright &copy; 2019 - 2020</span> <a href="https://lmsite.cn">EOYSKY</a> |  <a href="https://beian.miit.gov.cn/">浙ICP备18052140号-1</a>
         </div>
       </div>
     </div>
@@ -30,11 +31,8 @@
 </template>
 
 <script>
-import { deviceMixin } from '@/store/device-mixin'
-
 export default {
   name: 'UserLayout',
-  mixins: [deviceMixin],
   mounted () {
     document.body.classList.add('userLayout')
   },
@@ -58,18 +56,23 @@ export default {
     }
 
     .container {
-      width: 100%;
+      // width: 100%;
       min-height: 100%;
-      background: #f0f2f5 url(~@/assets/background.svg) no-repeat 50%;
-      background-size: 100%;
-      padding: 110px 0 144px;
+      background: #000000 url(~@/assets/loginbackground.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 0px 0 120px !important;
       position: relative;
 
       a {
+        color: #1890ff !important;
         text-decoration: none;
       }
 
       .top {
+        top: 12px;
+        position: relative;
         text-align: center;
 
         .header {
@@ -89,13 +92,13 @@ export default {
           .logo {
             height: 44px;
             vertical-align: top;
-            margin-right: 16px;
+            margin-right: 10px;
             border-style: none;
           }
 
           .title {
             font-size: 33px;
-            color: rgba(0, 0, 0, .85);
+            color: rgba(255, 255, 255, 0.85);
             font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
             font-weight: 600;
             position: relative;
@@ -104,7 +107,7 @@ export default {
         }
         .desc {
           font-size: 14px;
-          color: rgba(0, 0, 0, 0.45);
+          color: rgba(255, 255, 255, 0.85);
           margin-top: 12px;
           margin-bottom: 40px;
         }
@@ -128,7 +131,7 @@ export default {
           margin-bottom: 8px;
           font-size: 14px;
           a {
-            color: rgba(0, 0, 0, 0.45);
+            color: rgba(255, 255, 255, 0.85);
             transition: all 0.3s;
             &:not(:last-child) {
               margin-right: 40px;
@@ -136,7 +139,7 @@ export default {
           }
         }
         .copyright {
-          color: rgba(0, 0, 0, 0.45);
+          color: rgba(255, 255, 255, 0.85);
           font-size: 14px;
         }
       }
