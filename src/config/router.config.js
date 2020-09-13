@@ -1,4 +1,4 @@
-import { BlankLayout, HomeLayout, AdminLayout, UserLayout } from '@/layouts'
+import { HomeLayout, AdminLayout, UserLayout } from '@/layouts'
 
 const RouteView = {
   name: 'RouteView',
@@ -15,6 +15,7 @@ export const constantRouterMap = [
       // 这里写 home 的 pages
     ],
   },
+  // user
   {
     path: '/user',
     name: 'user',
@@ -32,6 +33,7 @@ export const constantRouterMap = [
       },
     ],
   },
+  // 404
   {
     path: '/404',
     component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404'),
@@ -39,10 +41,10 @@ export const constantRouterMap = [
 ]
 
 export const asyncRouterMap = [
-
+  // admin
   {
     path: '/admin',
-    name: 'IndexLayout',
+    name: 'AdminLayout',
     component: AdminLayout,
     meta: { title: 'menu.home' },
     redirect: '/admin/welcome',

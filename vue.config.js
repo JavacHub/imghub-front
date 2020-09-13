@@ -117,24 +117,30 @@ const vueConfig = {
     //   }
     // },
     // If you want to turn on the proxy, please remove the mockjs /src/main.jsL11
+    // 生产环境(前端和后端在同一台服务器上)
     // proxy: {
-    //   '/api': {
-    //     // backend url
-    //     target: 'http://localhost:8080/gateway',
-    //     ws: false,
+    //   "/api/": {
+    //     target: "https://localhost:7218",
     //     changeOrigin: true,
-    //     pathRewrite: {
-    //       '^/api': '',
-    //     },
-    //   },
-    // },
+    //     pathRewrite: { "^/api": "/api" }
+    //   }
+    // }
+    // 测试环境
     proxy: {
       "/api/": {
-        target: 'https://img.jonnyhub.com',
+        target: "https://img.jonnyhub.com",
         changeOrigin: true,
-        pathRewrite: { "^/api": "" },
+        pathRewrite: { "^/api": "/api" },
       },
     },
+    // 预发环境(实际上链接的是生产环境数据)
+    // proxy: {
+    //   "/api/": {
+    //     target: "https://imghub.lmsite.cn",
+    //     changeOrigin: true,
+    //     pathRewrite: { "^/api": "" }
+    //   }
+    // }
   },
   /* ADVANCED SETTINGS */
 
