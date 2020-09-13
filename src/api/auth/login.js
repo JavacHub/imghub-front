@@ -3,8 +3,8 @@ import request from '@/utils/request'
 /**
  * login func
  * parameter: {
- *     username: '',
- *     password: '',
+ *     userName: '',
+ *     passwd: '',
  *     remember_me: true,
  *     captcha: '12345'
  * }
@@ -13,7 +13,7 @@ import request from '@/utils/request'
  */
 export function login (parameter) {
   return request({
-    url: '/login/account',
+    url: '/user/login',
     method: 'post',
     data: parameter,
   })

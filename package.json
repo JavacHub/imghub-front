@@ -59,5 +59,6 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "proxy":"https://img.jonnyhub.com"
 }

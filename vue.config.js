@@ -49,47 +49,50 @@ const vueConfig = {
       // Ignore all locale files of moment.js
       new IgnorePlugin(/^\.\/locale$/, /moment$/),
       new webpack.DefinePlugin({
-        APP_VERSION: `"${require('./package.json').version}"`,
+        APP_VERSION: `"${require("./package.json").version}"`,
         GIT_HASH: JSON.stringify(getGitHash()),
         BUILD_DATE: buildDate,
       }),
     ],
     resolve: {
       alias: {
-        '@ant-design/icons/lib/dist$': resolve('./src/icons.js'),
+        "@ant-design/icons/lib/dist$": resolve("./src/icons.js"),
       },
     },
     externals: isUseCDN ? assetsCDN.externals : {},
   },
   chainWebpack: config => {
     // replace svg-loader
-    const svgRule = config.module.rule('svg')
-    svgRule.uses.clear()
+    const svgRule = config.module.rule("svg");
+    svgRule.uses.clear();
 
-    svgRule.oneOf('inline')
+    svgRule
+      .oneOf("inline")
       .resourceQuery(/inline/)
-      .use('vue-svg-icon-loader')
-      .loader('vue-svg-icon-loader')
+      .use("vue-svg-icon-loader")
+      .loader("vue-svg-icon-loader")
       .end()
       .end()
-      .oneOf('external')
-      .use('file-loader')
-      .loader('file-loader')
+      .oneOf("external")
+      .use("file-loader")
+      .loader("file-loader")
       .options({
-        name: 'assets/[name].[hash:8].[ext]',
-      })
+        name: "assets/[name].[hash:8].[ext]",
+      });
 
     // if `IS_USE_CDN` env is TRUE require on cdn assets
-    isUseCDN && config.plugin('html').tap(args => {
-      args[0].cdn = assetsCDN.assets
-      return args
-    })
+    isUseCDN &&
+      config.plugin("html").tap(args => {
+        args[0].cdn = assetsCDN.assets;
+        return args;
+      });
     // if `IS_ANALYZ` env is TRUE on report bundle info
-    isAnalyz && config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
-      {
-        analyzerMode: 'static',
-      },
-    ])
+    isAnalyz &&
+      config.plugin("webpack-report").use(BundleAnalyzerPlugin, [
+        {
+          analyzerMode: "static",
+        },
+      ]);
   },
   // style config
   css: {
@@ -97,7 +100,7 @@ const vueConfig = {
       less: {
         modifyVars: {
           // less vars，customize ant design theme
-          'border-radius-base': '2px',
+          "border-radius-base": "2px",
         },
         // DO NOT REMOVE THIS LINE
         javascriptEnabled: true,
@@ -108,11 +111,11 @@ const vueConfig = {
     // development server port 8000
     port: 8000,
     // mock serve
-    before: app => {
-      if (process.env.MOCK !== 'none' && process.env.HTTP_MOCK !== 'none') {
-        app.use(createMockMiddleware())
-      }
-    },
+    // before: app => {
+    //   if (process.env.MOCK !== "none" && process.env.HTTP_MOCK !== "none") {
+    //     app.use(createMockMiddleware());
+    //   }
+    // },
     // If you want to turn on the proxy, please remove the mockjs /src/main.jsL11
     // proxy: {
     //   '/api': {
@@ -125,6 +128,13 @@ const vueConfig = {
     //     },
     //   },
     // },
+    proxy: {
+      "/api/": {
+        target: 'https://img.jonnyhub.com',
+        changeOrigin: true,
+        pathRewrite: { "^/api": "" },
+      },
+    },
   },
   /* ADVANCED SETTINGS */
 
@@ -132,10 +142,10 @@ const vueConfig = {
   productionSourceMap: false,
   // ESLint Check: DISABLE for false
   // Type: boolean | 'warning' | 'default' | 'error'
-  lintOnSave: 'warning',
+  lintOnSave: "warning",
   // babel-loader no-ignore node_modules/*
   transpileDependencies: [],
-}
+};
 
 // preview.pro.antdv.com only do not use in your production;
 if (process.env.VUE_APP_PREVIEW === 'true') {

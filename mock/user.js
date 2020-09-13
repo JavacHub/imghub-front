@@ -332,13 +332,13 @@ module.exports = {
     })
   },
 
-  'POST /api/login/account': (req, res) => {
+  'POST /api/user/login': (req, res) => {
     const { password, username, type } = req.body
 
     if (!usernames.includes(username) || !passwords.includes(password)) {
       res.send({
         data: {
-          isLogin: true,
+          isLogin: false,
         },
         message: '账户或密码错误',
         code: 401,

@@ -19,7 +19,7 @@
             type="error"
             show-icon
             style="margin-bottom: 24px;"
-            message="账号或密码错误（admin/ant.design )"
+            message="账号或密码错误"
           />
           <a-form-item>
             <a-input
@@ -27,11 +27,11 @@
               type="text"
               placeholder="用户名或邮箱"
               v-decorator="[
-                'username',
+                'userName',
                 {
                   rules: [
                     { required: true, message: '请输入帐户名或邮箱地址' },
-                    { validator: handleUsernameOrEmail }
+                    { validator: handleUserNameOrEmail }
                   ],
                   validateTrigger: 'change'
                 }
@@ -49,7 +49,7 @@
               size="large"
               placeholder="密码"
               v-decorator="[
-                'password',
+                'passwd',
                 {
                   rules: [{ required: true, message: '请输入密码' }],
                   validateTrigger: 'blur'
@@ -72,7 +72,7 @@
               type="text"
               placeholder="手机号"
               v-decorator="[
-                'mobile',
+                'phone',
                 {
                   rules: [
                     {
@@ -139,7 +139,7 @@
         </a-checkbox>
         <router-link
           :to="{ name: 'login', params: { user: 'userid' } }"
-          class="forge-password"
+          class="forge-passwd"
           style="float: right;"
         >
           忘记密码
@@ -186,7 +186,7 @@ export default {
     return {
       customActiveKey: "tab1",
       loginBtn: false,
-      // login type: 0 email, 1 username, 2 telephone
+      // login type: 0 email, 1 userName, 2 telephone
       loginType: 0,
       isLoginError: false,
       requiredTwoStepCaptcha: false,
@@ -195,7 +195,7 @@ export default {
       state: {
         time: 60,
         loginBtn: false,
-        // login type: 0 email, 1 username, 2 telephone
+        // login type: 0 email, 1 userName, 2 telephone
         loginType: 0,
         smsSendBtn: false
       }
@@ -204,7 +204,7 @@ export default {
   methods: {
     ...mapActions(["Login", "Logout"]),
     // handler
-    handleUsernameOrEmail(rule, value, callback) {
+    handleUserNameOrEmail(rule, value, callback) {
       const { state } = this;
       const regex = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
       if (regex.test(value)) {
@@ -231,17 +231,17 @@ export default {
 
       const validateFieldsKey =
         customActiveKey === "tab1"
-          ? ["username", "password"]
-          : ["mobile", "captcha"];
+          ? ["userName", "passwd"]
+          : ["phone", "captcha"];
 
       validateFields(validateFieldsKey, { force: true }, (err, values) => {
         if (!err) {
           console.log("login form", values);
           const loginParams = { ...values };
-          delete loginParams.username;
-          loginParams[!state.loginType ? "email" : "username"] =
-            values.username;
-          loginParams.password = values.password; // md5(values.password)
+          delete loginParams.userName;
+          loginParams[!state.loginType ? "email" : "userName"] =
+            values.userName;
+          loginParams.passwd = values.passwd; // md5(values.passwd)
           Login(loginParams)
             .then(res => this.loginSuccess(res))
             .catch(err => this.requestFailed(err))
@@ -262,7 +262,7 @@ export default {
         state
       } = this;
 
-      validateFields(["mobile"], { force: true }, (err, values) => {
+      validateFields(["phone"], { force: true }, (err, values) => {
         if (!err) {
           state.smsSendBtn = true;
 
@@ -275,7 +275,7 @@ export default {
           }, 1000);
 
           const hide = this.$message.loading("验证码发送中..", 0);
-          getSmsCaptcha({ mobile: values.mobile })
+          getSmsCaptcha({ phone: values.phone })
             .then(res => {
               setTimeout(hide, 2500);
               this.$notification.success({
@@ -343,13 +343,29 @@ export default {
 
 <style lang="less" scoped>
 .ant-form {
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8) !important;
+   width:340px;
+  padding: 20px 15px;
+  background-color: rgba(255, 255, 255, 0.85);
   border-radius: 10px;
+  margin-top:10px;
 }
 .ant-input {
-  background-color: #fff;
-  border: 0px solid;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 0px;
+}
+
+.container .top[data-v-21bb1854] {
+  padding-right: 18px;
+}
+
+.container .top .desc[data-v-21bb1854] {
+  font-size: 16px;
+  color: rgba(255,255,255, 0.8);
+}
+
+.container .top .header .title[data-v-21bb1854] {
+  font-size: 36px;
+  color: rgba(24,144,255, 0.85);
 }
 
 .user-layout-login {
@@ -363,7 +379,7 @@ export default {
     height: 40px;
   }
 
-  .forge-password {
+  .forge-passwd {
     font-size: 14px;
   }
 
