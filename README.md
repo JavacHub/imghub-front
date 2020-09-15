@@ -1,8 +1,6 @@
-[English](./README.md) | 简体中文
-
-<h1 align="center">Ant Design Vue Pro</h1>
+<h1 align="center">ImgHub</h1>
 <div align="center">
-An out-of-box UI solution for enterprise applications as a Vue boilerplate. based on  <a href="https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/" target="_blank">Ant Design of Vue</a>
+ImgHub - 行走在西湖边上的图床 <a href="https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/" target="_blank"> Design By LMSite</a>
 </div>
 
 <div align="center">
@@ -13,45 +11,39 @@ An out-of-box UI solution for enterprise applications as a Vue boilerplate. base
 
 </div>
 
-- 预览: https://preview.pro.antdv.com
-- 首页: https://pro.antdv.com
-- 文档: https://pro.antdv.com/docs/getting-started
-- 更新日志: https://pro.antdv.com/docs/changelog
-- 常见问题: https://pro.antdv.com/docs/faq
-
-Overview
+概览
 ----
 
-基于 [Ant Design of Vue](https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/) 实现的 [Ant Design Pro](https://pro.ant.design/) 
+> yarn 与 npm 任选其一即可。
 
-![dashboard](https://static-2.loacg.com/open/static/github/sp3.png)
-
-### Env and dependencies
-
-- node
-- eslint
-- @vue/cli
-- [ant-design-vue](https://github.com/vueComponent/ant-design-vue) - Ant Design Of Vue 
-
-## Project setup
+## 项目启动
 ```
 npm install
+
+yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 编译和热重装以进行开发
 ```
 npm run serve
+
+yarn serve
 ```
 
-### Compiles and minifies for production
+### 编译并最小化生产
 ```
 npm run build
+
+yarn build
 ```
 
-### Lints and fixes files
+### 整理和修复文件
 ```
 npm run lint
+
+yarn run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 自定义配置 
+
+查看 [配置手册](https://cli.vuejs.org/config/).
