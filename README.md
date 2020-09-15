@@ -46,4 +46,4 @@ yarn run lint
 
 ### 自定义配置 
 
-查看 [配置手册](https://cli.vuejs.org/config/).
+查看 [配置手册](https://cli.vuejs.org/zh/config/).
