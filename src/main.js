@@ -33,6 +33,7 @@ import {
   Select,
   Progress,
   Popover,
+  Upload,
 } from "ant-design-vue";
 import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout'
 import { PageLoading } from '@/components'
@@ -67,6 +68,7 @@ Vue.use(Col)
 Vue.use(Modal)
 Vue.use(Alert)
 Vue.use(Divider)
+Vue.use(Upload)
 
 Vue.prototype.$confirm = Modal.confirm
 Vue.prototype.$message = message

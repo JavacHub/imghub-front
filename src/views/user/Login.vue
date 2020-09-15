@@ -322,7 +322,7 @@ export default {
       setTimeout(() => {
         this.$notification.success({
           message: "欢迎",
-          description: "欢迎回来"
+          description: "登陆成功！"
         });
       }, 1000);
       this.isLoginError = false;

@@ -6,39 +6,44 @@ const RouteView = {
 }
 
 export const constantRouterMap = [
-  // home
-  {
-    path: '/',
-    name: 'home',
-    component: HomeLayout,
-    children: [
-      // 这里写 home 的 pages
-    ],
-  },
-  // user
-  {
-    path: '/user',
-    name: 'user',
-    component: UserLayout,
-    children: [
-      {
-        path: '/user/login',
-        name: 'login',
-        component: () => import('@/views/user/Login'),
-      },
-      {
-        path: '/user/register',
-        name: 'register',
-        component: () => import('@/views/user/Register'),
-      },
-    ],
-  },
-  // 404
-  {
-    path: '/404',
-    component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404'),
-  },
-]
+         // home
+         {
+           path: "/",
+           name: "home",
+           component: HomeLayout,
+           children: [
+             {
+               path: "/",
+               name: "index",
+               component: () => import("@/views/home/Index"),
+             },
+           ],
+         },
+         // user
+         {
+           path: "/user",
+           name: "user",
+           component: UserLayout,
+           children: [
+             {
+               path: "/user/login",
+               name: "login",
+               component: () => import("@/views/user/Login"),
+             },
+             {
+               path: "/user/register",
+               name: "register",
+               component: () => import("@/views/user/Register"),
+             },
+           ],
+         },
+         // 404
+         {
+           path: "/404",
+           component: () =>
+             import(/* webpackChunkName: "fail" */ "@/views/exception/404"),
+         },
+       ];
 
 export const asyncRouterMap = [
   // admin

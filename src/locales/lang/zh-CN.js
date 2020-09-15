@@ -39,7 +39,7 @@ export default {
   pages: {
     admin: {
       welcome: {
-        tips: '欢迎使用 Ant Design Vue',
+        tips: '欢迎使用 ImgHub',
         'show-loading': '显示 Loading',
         'hide-loading': '隐藏 Loading',
       },
